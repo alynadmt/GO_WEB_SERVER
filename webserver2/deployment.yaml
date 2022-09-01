@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gowebserver-deploy2
+  namespace: default
+  labels:
+    app: gowebserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gowebserver
+  template:
+    metadata:
+      labels:
+        app: gowebserver
+  
+  containers:
+  - name: gowebserver
+    image: go_web_server:latest
+    imagePullPolicy: Never
+    ports:
+    - containerPort: 8080

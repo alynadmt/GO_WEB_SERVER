@@ -1,0 +1,8 @@
+FROM golang
+
+ADD . /usr/local/go/src/GoWebServer
+RUN go install GoWebServer
+ENTRYPOINT [ "/usr/local/go/bin/GoWebServer" ]
+RUN chmod 755 /usr/local/go/bin/GoWebServer
+
+EXPOSE 8080
